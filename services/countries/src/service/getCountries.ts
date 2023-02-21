@@ -1,5 +1,8 @@
-import { Country } from '../models/index.js';
+import type { GetCountries } from '@/abstracts/service';
+import { Country } from '@/models';
 
-export default async function getCountries() {
+const getCountries: GetCountries = async () => {
   return [new Country()];
-}
+};
+
+export default getCountries;
