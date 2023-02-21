@@ -1,1 +1,1 @@
-export { default as Country } from './Country.js';
+export { default as Country } from './Country';
