@@ -1,1 +1,1 @@
-export { default as mapCountryToJson } from './mapCountryToJson.js';
+export { default as mapCountryToJson } from './mapCountryToJson';
