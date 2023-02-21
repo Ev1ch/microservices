@@ -1,7 +1,8 @@
-import * as service from '../service/index.js';
-import { mapCountryToJson } from '../mappers/index.js';
+import type { GetCountryById } from '@/abstracts/controller';
+import service from '@/service';
+import { mapCountryToJson } from '@/mappers';
 
-export default async function getCountries(req, res, next) {
+const getCountries: GetCountryById = async (req, res, next) => {
   try {
     const { id } = req.params;
     const country = await service.getCountryById(id);
@@ -10,4 +11,6 @@ export default async function getCountries(req, res, next) {
   } catch (error) {
     next(error);
   }
-}
+};
+
+export default getCountries;

@@ -1,2 +1,9 @@
-export { default as getCountries } from './getCountries.js';
-export { default as getCountry } from './getCountry.js';
+import getCountries from './getCountries.js';
+import getCountry from './getCountry.js';
+
+export { getCountries, getCountry };
+
+export default {
+  getCountries,
+  getCountry,
+};
