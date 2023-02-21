@@ -1,8 +1,8 @@
 import express from 'express';
 
-import environment from './environment.js';
-import { COUNTRIES_ROOT } from './routes.js';
-import initRouter from './router.js';
+import environment from '@/environment';
+import { COUNTRIES_ROOT } from '@/routes';
+import initRouter from '@/router';
 
 const app = express();
 

@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
-import * as controller from './controller/index.js';
-import { COUNTRIES_ROUTES } from './routes.js';
+import controller from '@/controller';
+import { COUNTRIES_ROUTES } from '@/routes';
 
 const router = Router();
 
