@@ -2,7 +2,9 @@
   "type": "module",
   "scripts": {
     "start": "nodemon src/index.js",
-    "start:prod": "node src/index.js"
+    "start:prod": "node src/index.js",
+    "start:container": "docker run -p 3000:3000 --name countries_container --env-file .env -d countries_service",
+    "build:container": "docker build -t countries_image ."
   },
   "dependencies": {
     "dotenv": "^16.0.3",
