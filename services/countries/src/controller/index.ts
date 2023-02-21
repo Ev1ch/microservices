@@ -1,5 +1,5 @@
-import getCountries from './getCountries.js';
-import getCountry from './getCountry.js';
+import getCountries from './getCountries';
+import getCountry from './getCountry';
 
 export { getCountries, getCountry };
 
