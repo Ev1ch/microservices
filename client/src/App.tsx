@@ -26,10 +26,6 @@ function App() {
               <th>Id</th>
               <th>Country</th>
             </tr>
-            <tr>
-              <th>Id</th>
-              <th>Meal</th>
-            </tr>
           </thead>
           <tbody>
             {countries.map(({ id, name }) => (
@@ -38,6 +34,16 @@ function App() {
                 <td>{name}</td>
               </tr>
             ))}
+          </tbody>
+        </table>
+        <table>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Meal</th>
+            </tr>
+          </thead>
+          <tbody>
             {meals.map(({ id, name }) => (
               <tr key={id}>
                 <td>{id}</td>
