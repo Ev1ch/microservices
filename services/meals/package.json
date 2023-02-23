@@ -2,9 +2,9 @@
   "scripts": {
     "start": "nodemon src/index.ts",
     "start:prod": "node -r ./tsconfig.paths.js dist/index.js",
-    "start:container": "docker run -p 3000:3000 --name countries_container --env-file .env -d countries_service",
+    "start:container": "docker run -p 3000:3000 --name meals_container --env-file .env -d meals_service",
     "build": "tsc",
-    "build:container": "docker build -t countries_image ."
+    "build:container": "docker build -t meals_image ."
   },
   "dependencies": {
     "cors": "^2.8.5",
