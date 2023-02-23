@@ -1,9 +1,9 @@
 import type { MapMealToJson } from '@/abstracts/mappers';
 
-const mapMealToJson: MapMealToJson = (Meal) => {
+const mapMealToJson: MapMealToJson = (meal) => {
   return {
-    id: Meal.id,
-    name: Meal.name,
+    id: meal.id,
+    name: meal.name,
   };
 };
 
