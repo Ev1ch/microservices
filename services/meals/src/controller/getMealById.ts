@@ -2,7 +2,7 @@ import type { GetMealById } from '@/abstracts/controller';
 import service from '@/service';
 import { mapMealToJson } from '@/mappers';
 
-const getMeals: GetMealById = async (req, res, next) => {
+const getMealById: GetMealById = async (req, res, next) => {
   try {
     const { id } = req.params;
     const Meal = await service.getMealById(id);
@@ -13,4 +13,4 @@ const getMeals: GetMealById = async (req, res, next) => {
   }
 };
 
-export default getMeals;
+export default getMealById;

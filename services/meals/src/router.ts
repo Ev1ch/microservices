@@ -8,5 +8,5 @@ const router = Router();
 export default function initRouter() {
   return router
     .get(MEALS_ROUTES.root, controller.getMeals)
-    .get(MEALS_ROUTES.one, controller.getMeal);
+    .get(MEALS_ROUTES.one, controller.getMealById);
 }

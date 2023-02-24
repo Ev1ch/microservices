@@ -1,9 +1,9 @@
 import getMeals from './getMeals';
-import getMeal from './getMeal';
+import getMealById from './getMealById';
 
-export { getMeals, getMeal };
+export { getMeals, getMealById };
 
 export default {
   getMeals,
-  getMeal,
+  getMealById,
 };
