@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from 'express';
 
-import type { ICountry } from '@/domain';
+import type { ICuisine } from '@/domain';
 
 type ControllerMethod<T = {}, K = {}> = (
   req: Request<T>,
@@ -8,6 +8,6 @@ type ControllerMethod<T = {}, K = {}> = (
   next: NextFunction,
 ) => Promise<void>;
 
-export type GetCountries = ControllerMethod<{}, ICountry[]>;
+export type GetCuisines = ControllerMethod<{}, ICuisine[]>;
 
-export type GetCountryById = ControllerMethod<{ id: string }, ICountry>;
+export type GetCuisineById = ControllerMethod<{ id: string }, ICuisine>;
