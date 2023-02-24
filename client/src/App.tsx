@@ -5,12 +5,12 @@ import type { ICuisine, IMeal } from '@/domain';
 import api from '@/api';
 
 function App() {
-  const [cuisines, setCountries] = useState<ICuisine[]>([]);
+  const [cuisines, setCuisines] = useState<ICuisine[]>([]);
   const [meals, setMeals] = useState<IMeal[]>([]);
 
   useMount(() => {
     api.get<ICuisine[]>('/cuisines').then((response) => {
-      setCountries(response.data);
+      setCuisines(response.data);
     });
     api.get<IMeal[]>('/meals').then((response) => {
       setMeals(response.data);
