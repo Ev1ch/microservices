@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meals-deployment
+spec:
+  replicas: 1                      
+  selector:
+    matchLabels:
+      app: meals                
+  template:
+    metadata:
+     labels:
+       app: meals               
+    spec:
+      containers:
+        - image: meals_image
+          imagePullPolicy: Never   
+          name: meals-container 
+          ports:
+            - containerPort: 3000 
