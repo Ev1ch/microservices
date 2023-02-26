@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ingredients-deployment
+spec:
+  replicas: 1                      
+  selector:
+    matchLabels:
+      app: ingredients                
+  template:
+    metadata:
+     labels:
+       app: ingredients               
+    spec:
+      containers:
+        - image: ingredients_image
+          imagePullPolicy: Never   
+          name: ingredients-container 
+          ports:
+            - containerPort: 3000 
