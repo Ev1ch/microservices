@@ -8,4 +8,4 @@ spec:
     - port: 4000     
       targetPort: 3000 
   selector:
-    app: meals      
+    app: meals
