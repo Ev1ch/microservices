@@ -1,6 +1,6 @@
-import type { GetIngredientById } from '@/abstracts/controller';
-import service from '@/service';
-import { mapIngredientToJson } from '@/mappers';
+import type { GetIngredientById } from "@/abstracts/controller";
+import service from "@/service";
+import { mapIngredientToJson } from "@/mappers";
 
 const getIngredient: GetIngredientById = async (req, res, next) => {
   try {

@@ -1,5 +1,5 @@
-import { cleanEnv, num, str } from 'envalid';
-import 'dotenv/config';
+import { cleanEnv, num, str } from "envalid";
+import "dotenv/config";
 
 const environment = cleanEnv(process.env, {
   API_VERSION: str(),

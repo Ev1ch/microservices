@@ -1,1 +1,1 @@
-export type { default as IIngredient } from './IIngredient';
+export type { default as IIngredient } from "./IIngredient";

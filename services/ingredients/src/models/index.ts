@@ -1,1 +1,1 @@
-export { default as Ingredient } from './Ingredient';
+export { default as Ingredient } from "./Ingredient";

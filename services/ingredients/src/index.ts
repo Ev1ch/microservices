@@ -1,9 +1,9 @@
-import express from 'express';
-import cors from 'cors';
+import express from "express";
+import cors from "cors";
 
-import environment from '@/environment';
-import { INGREDIENTS_ROOT } from '@/routes';
-import initRouter from '@/router';
+import environment from "@/environment";
+import { INGREDIENTS_ROOT } from "@/routes";
+import initRouter from "@/router";
 
 const app = express();
 

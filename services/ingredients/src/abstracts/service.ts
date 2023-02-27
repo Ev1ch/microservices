@@ -1,4 +1,4 @@
-import type { Ingredient } from '@/models';
+import type { Ingredient } from "@/models";
 
 export type GetIngredients = () => Promise<Ingredient[]>;
 
