@@ -1,5 +1,4 @@
-// import type { IMeal } from '@/domain';
-import IIngredient from '../domain/IIngredient';
+import type { IIngredient } from '@/domain';
 
 export default class Ingredient implements IIngredient {
   public id: string = 'id';
