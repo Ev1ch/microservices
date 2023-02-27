@@ -1,12 +1,12 @@
 import { Router } from 'express';
 
 import controller from '@/controller';
-import { MEALS_ROUTES } from '@/routes';
+import { CUISINES_ROUTES } from '@/routes';
 
 const router = Router();
 
 export default function initRouter() {
   return router
-    .get(MEALS_ROUTES.root, controller.getMeals)
-    .get(MEALS_ROUTES.one, controller.getMealById);
+    .get(CUISINES_ROUTES.root, controller.getCuisines)
+    .get(CUISINES_ROUTES.one, controller.getCuisineById);
 }
