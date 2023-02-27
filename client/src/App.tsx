@@ -1,22 +1,22 @@
 import { useState } from 'react';
 import { useMount } from 'react-use';
 
-import type { ICountry, IMeal, IIngredient } from '@/domain';
+import type { ICuisine, IMeal, IIngredient } from '@/domain';
 import api from '@/api';
 
 function App() {
-  const [countries, setCountries] = useState<ICountry[]>([]);
+  const [countries, setCountries] = useState<ICuisine[]>([]);
   const [meals, setMeals] = useState<IMeal[]>([]);
   const [ingredients, setIngredients] = useState<IIngredient[]>([]);
 
   useMount(() => {
-    api.get<ICountry[]>('/countries').then((response) => {
+    api.get<ICuisine[]>('/countries').then((response) => {
       setCountries(response.data);
     });
     api.get<IMeal[]>('/meals').then((response) => {
       setMeals(response.data);
     });
-    api.get<ICountry[]>('/ingredients').then((response) => {
+    api.get<IIngredient[]>('/ingredients').then((response) => {
       setIngredients(response.data);
     });
   });
