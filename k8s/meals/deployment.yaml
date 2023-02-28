@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: meals-deployment
 spec:
-  replicas: 1                      
+  replicas: 1
   selector:
     matchLabels:
-      app: meals                
+      app: meals
   template:
     metadata:
-     labels:
-       app: meals               
+      labels:
+        app: meals
     spec:
       containers:
         - image: meals_image
-          imagePullPolicy: Never   
-          name: meals-container 
+          imagePullPolicy: Never
+          name: meals-container
           ports:
-            - containerPort: 3000 
+            - containerPort: 3000

@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: ingredients-deployment
 spec:
-  replicas: 1                      
+  replicas: 1
   selector:
     matchLabels:
-      app: ingredients                
+      app: ingredients
   template:
     metadata:
-     labels:
-       app: ingredients               
+      labels:
+        app: ingredients
     spec:
       containers:
         - image: ingredients_image
-          imagePullPolicy: Never   
-          name: ingredients-container 
+          imagePullPolicy: Never
+          name: ingredients-container
           ports:
-            - containerPort: 3000 
+            - containerPort: 3000
