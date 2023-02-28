@@ -12,4 +12,8 @@ minikube kubectl -- apply -f ./k8s/client
 minikube kubectl -- apply -f ./k8s/meals
 minikube kubectl -- apply -f ./k8s/cuisines
 minikube kubectl -- apply -f ./k8s/ingredients
-minikube kubectl -- proxy 
+# minikube kubectl -- proxy 
+kubectl apply -f k8s/client/ingress.yaml
+kubectl apply -f k8s/meals/ingress.yaml
+kubectl apply -f k8s/cuisines/ingress.yaml
+kubectl apply -f k8s/ingredients/ingress.yaml
