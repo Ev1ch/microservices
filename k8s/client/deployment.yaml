@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: client-deployment
 spec:
-  replicas: 1                      
+  replicas: 1
   selector:
     matchLabels:
-      app: client                
+      app: client
   template:
     metadata:
-     labels:
-       app: client               
+      labels:
+        app: client
     spec:
       containers:
         - image: client_image
-          imagePullPolicy: Never   
-          name: client-container 
+          imagePullPolicy: Never
+          name: client-container
           ports:
-            - containerPort: 4000 
+            - containerPort: 4000

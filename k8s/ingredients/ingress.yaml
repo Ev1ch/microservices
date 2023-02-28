@@ -3,13 +3,13 @@ kind: Ingress
 metadata:
   name: ingredients-ingress
   annotations:
-    kubernetes.io/ingress.class: "nginx"
+    kubernetes.io/ingress.class: 'nginx'
 spec:
   rules:
     - http:
         paths:
-          - path: /api/ingredients
-            pathType: "Prefix"
+          - path: /api/v1/ingredients
+            pathType: 'Prefix'
             backend:
               service:
                 name: ingredients-service

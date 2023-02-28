@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: cuisines-deployment
 spec:
-  replicas: 1                      
+  replicas: 1
   selector:
     matchLabels:
-      app: cuisines                
+      app: cuisines
   template:
     metadata:
-     labels:
-       app: cuisines               
+      labels:
+        app: cuisines
     spec:
       containers:
         - image: cuisines_image
-          imagePullPolicy: Never   
-          name: cuisines-container 
+          imagePullPolicy: Never
+          name: cuisines-container
           ports:
-            - containerPort: 3000 
+            - containerPort: 3000
