@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "start:prod": "npx serve -s build -l 4000",
+    "start:prod": "npx serve -s build -p 4000",
     "start:container": "docker run -p 4000:4000 --name client_container --env-file .env -d client_image",
     "build": "craco build",
     "build:container": "docker build -t client_image .",
