@@ -8,7 +8,7 @@ spec:
   rules:
     - http:
         paths:
-          - path: api/v1/service/ingredients
+          - path: api/v1/ingredients
             pathType: "Prefix"
             backend:
               service:
