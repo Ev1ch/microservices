@@ -1,15 +1,18 @@
 #/bin/sh
 
-minikube start 
+minikube start
+eval $(minikube -p minikube docker-env)
+minikube addons enable ingress
 minikube kubectl -- get po -A
-minikube tunnel
-minikube docker-env
-docker docker build -t cuisines_image services/cuisines/Dockerfile .
-docker docker build -t meals_image services/meals/Dockerfile .
-docker docker build -t ingredients_image services/ingredients/Dockerfile .
-docker docker build -t client_image services/client/Dockerfile .
+
+docker build -t client_image client/
+docker build -t cuisines_image services/cuisines/
+docker build -t meals_image services/meals/
+docker build -t ingredients_image services/ingredients/
+
 minikube kubectl -- apply -f ./k8s/client
 minikube kubectl -- apply -f ./k8s/meals
 minikube kubectl -- apply -f ./k8s/cuisines
 minikube kubectl -- apply -f ./k8s/ingredients
-minikube kubectl -- proxy 
+
+minikube tunnel
