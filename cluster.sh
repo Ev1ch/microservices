@@ -2,6 +2,7 @@
 
 minikube start
 eval $(minikube -p minikube docker-env)
+minikube addons enable ingress
 minikube kubectl -- get po -A
 
 docker build -t client_image client/
