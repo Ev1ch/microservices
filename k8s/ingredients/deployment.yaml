@@ -18,3 +18,8 @@ spec:
           name: ingredients-container
           ports:
             - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: ingredients-config
+            - secretRef:
+                name: ingredients-secret
