@@ -6,27 +6,27 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: postgres
+      app: meals-db
   template:
     metadata:
       labels:
-        app: postgres
+        app: meals-db
     spec:
       containers:
-        - name: postgres
+        - name: meals-db
           image: postgres:14.1-alpine3.15
           imagePullPolicy: "IfNotPresent"
           ports:
             - containerPort: 5432
           envFrom:
             - configMapRef:
-                name: postgres-config
+                name: meals-db-config
             - secretRef:
-                name: postgres-secret
+                name: meals-db-secret
           volumeMounts:
             - mountPath: /var/lib/postgresql/data
-              name: postgredb
+              name: meals-db
       volumes:
-        - name: postgredb
+        - name: meals-db
           persistentVolumeClaim:
-            claimName: postgres-volume-claim
+            claimName: meals-db-volume-claim
