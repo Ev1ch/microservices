@@ -1,7 +1,7 @@
 #/bin/sh
 
 minikube start
-eval $(minikube -p minikube docker-env | Invoke-Expression)
+eval $(minikube -p minikube docker-env)
 minikube addons enable ingress
 minikube kubectl -- get po -A
 
