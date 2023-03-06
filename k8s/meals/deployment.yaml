@@ -18,3 +18,8 @@ spec:
           name: meals-container
           ports:
             - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: meals-config
+            - secretRef:
+                name: meals-secret

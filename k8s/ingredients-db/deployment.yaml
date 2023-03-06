@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ingredients-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ingredients-db
+  template:
+    metadata:
+      labels:
+        app: ingredients-db
+    spec:
+      containers:
+        - name: ingredients-db
+          image: postgres:14.1-alpine3.15
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: ingredients-db-config
+            - secretRef:
+                name: ingredients-db-secret
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: ingredients-db
+      volumes:
+        - name: ingredients-db
+          persistentVolumeClaim:
+            claimName: ingredients-db-volume-claim
