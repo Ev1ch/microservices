@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: meals-config
 data:
-  POSTGRES_DB:  meals-db
+  POSTGRES_DB:  meals
   POSTGRES_HOST:  postgres

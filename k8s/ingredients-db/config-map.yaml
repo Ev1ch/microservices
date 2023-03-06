@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: ingredients-db-config
 data:
-  POSTGRES_DB: ingredients-db
+  POSTGRES_DB: ingredients
