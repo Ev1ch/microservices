@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meals-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: meals-db
+  template:
+    metadata:
+      labels:
+        app: meals-db
+    spec:
+      containers:
+        - name: meals-db
+          image: postgres:14.1-alpine3.15
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 5432
+          envFrom:
+            - configMapRef:
+                name: meals-db-config
+            - secretRef:
+                name: meals-db-secret
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: meals-db
+      volumes:
+        - name: meals-db
+          persistentVolumeClaim:
+            claimName: meals-db-volume-claim

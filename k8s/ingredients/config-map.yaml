@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ingredients-config
+data:
+  POSTGRES_DB: ingredients
+  POSTGRES_HOST: postgres
