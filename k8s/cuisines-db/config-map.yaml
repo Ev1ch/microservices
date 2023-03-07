@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: cuisines-db-config
 data:
-  POSTGRES_DB: cuisines-db
+  POSTGRES_DB: demo
