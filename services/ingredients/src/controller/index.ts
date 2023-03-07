@@ -1,9 +1,9 @@
-import getIngredients from "./getIngredients";
-import getIngredient from "./getIngredient";
+import getIngredients from './getIngredients';
+import getIngredientById from './getIngredientById';
 
-export { getIngredients, getIngredient };
+export { getIngredients, getIngredientById };
 
 export default {
   getIngredients,
-  getIngredient,
+  getIngredientById,
 };
