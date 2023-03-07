@@ -5,6 +5,10 @@ eval $(minikube -p minikube docker-env)
 minikube addons enable ingress
 minikube kubectl -- get po -A
 
+docker build -t cuisines_migrations_image services/cuisines/migrations/
+docker build -t ingredients_migrations_image services/ingredients/migrations/
+docker build -t meals_migrations_image services/meals/migrations/
+
 docker build -t client_image client/
 docker build -t cuisines_image services/cuisines/
 docker build -t meals_image services/meals/
