@@ -1,8 +1,11 @@
 import type { GetCuisines } from '@/abstracts/service';
-import { Cuisine } from '@/models';
+import { CuisinesRepository } from '@/repositories';
+
+const repository = new CuisinesRepository();
 
 const getCuisines: GetCuisines = async () => {
-  return [new Cuisine()];
+  const cuisines = await repository.getAll();
+  return cuisines;
 };
 
 export default getCuisines;
