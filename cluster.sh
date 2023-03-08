@@ -25,7 +25,7 @@ minikube kubectl -- apply -f ./k8s/cuisines-db
 minikube kubectl -- apply -f ./k8s/meals-db
 minikube kubectl -- apply -f ./k8s/ingredients-db
 
-# minikube kubectl -- apply -f ./k8s/client
+minikube kubectl -- apply -f ./k8s/client
 minikube kubectl -- apply -f ./k8s/cuisines
 minikube kubectl -- apply -f ./k8s/meals
 minikube kubectl -- apply -f ./k8s/ingredients
