@@ -1,8 +1,11 @@
-import type { GetIngredients } from "@/abstracts/service";
-import { Ingredient } from "@/models";
+import type { GetIngredients } from '@/abstracts/service';
+import { IngredientsRepository } from '@/repositories';
 
-const getCountries: GetIngredients = async () => {
-  return [new Ingredient()];
+const repository = new IngredientsRepository();
+
+const getIngredients: GetIngredients = async () => {
+  const ingredients = await repository.getAll();
+  return ingredients;
 };
 
-export default getCountries;
+export default getIngredients;

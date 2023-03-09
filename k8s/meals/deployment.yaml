@@ -12,6 +12,14 @@ spec:
       labels:
         app: meals
     spec:
+      initContainers:
+        - name: run-migrations
+          image: meals_migrations_image:latest
+          imagePullPolicy: Never
+          command: ['yarn', 'migrate']
+          env:
+            - name: DB_URL
+              value: 'postgresql://demo:demo@meals-db:5432/demo?sslmode=disable'
       containers:
         - image: meals_image
           imagePullPolicy: Never

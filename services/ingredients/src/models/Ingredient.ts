@@ -1,5 +1,12 @@
-import type { IIngredient } from "@/domain";
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
+import type { IIngredient } from '@/domain';
+
+@Entity('ingredients')
 export default class Ingredient implements IIngredient {
-  public id: string = "id";
-  public name: string = "name";
+  @PrimaryGeneratedColumn('uuid')
+  public id!: string;
+
+  @Column()
+  public name!: string;
 }
