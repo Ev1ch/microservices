@@ -12,6 +12,14 @@ spec:
       labels:
         app: cuisines
     spec:
+      initContainers:
+        - name: run-migrations
+          image: cuisines_migrations_image:latest
+          imagePullPolicy: Never
+          command: ['yarn', 'migrate']
+          env:
+            - name: DB_URL
+              value: 'postgresql://demo:demo@cuisines-db:5432/demo?sslmode=disable'
       containers:
         - image: cuisines_image
           imagePullPolicy: Never

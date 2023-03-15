@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: cuisines-config
 data:
-  POSTGRES_DB: cuisines
+  POSTGRES_DB: demo
   POSTGRES_HOST: postgres

@@ -1,5 +1,5 @@
 # Choosing the base image and setting the working directory
-FROM node:16-alpine
+FROM node:18-alpine
 WORKDIR /usr/server
 
 # Installing dependencies

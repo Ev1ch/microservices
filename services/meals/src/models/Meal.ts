@@ -1,6 +1,12 @@
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+
 import type { IMeal } from '@/domain';
 
+@Entity('meals')
 export default class Meal implements IMeal {
-  public id: string = 'id';
-  public name: string = 'name';
+  @PrimaryGeneratedColumn('uuid')
+  public id!: string;
+
+  @Column()
+  public name!: string;
 }
