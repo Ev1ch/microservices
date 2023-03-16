@@ -12,7 +12,7 @@ const errorMiddleware = (
   if (data instanceof Error) {
     const status = (data as ApiError)?.status ?? HttpCode.INTERNAL_SERVER_ERROR;
     const message = data?.message ?? 'Internal server error';
-    res.status(status).json({ message });
+    res.status(status).json({ error: { message } });
     return;
   }
 
