@@ -14,10 +14,14 @@ export default class Repository<T extends IEntity<K>, K extends PrimitiveKey>
   }
 
   public async getById(id: K) {
-    // TODO: Fix error expecting, research the core problem
-    // @ts-expect-error TS2345: Argument of type '{ where: { id: K; }; }' is not assignable to parameter of type 'FindOneOptions<T>'.
-    const entity = this.adapter.findOne({ where: { id } });
-    return entity;
+    try {
+      // TODO: Fix error expecting, research the core problem
+      // @ts-expect-error TS2345: Argument of type '{ where: { id: K; }; }' is not assignable to parameter of type 'FindOneOptions<T>'.
+      const entity = this.adapter.findOne({ where: { id } });
+      return entity;
+    } catch (error) {
+      return null;
+    }
   }
 
   public async add(entity: T) {
