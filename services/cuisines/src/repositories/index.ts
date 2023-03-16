@@ -1,1 +1,4 @@
-export { default as CuisinesRepository } from './CuisinesRepository';
+export {
+  default as CuisinesRepository,
+  cuisinesRepository,
+} from './CuisinesRepository';
