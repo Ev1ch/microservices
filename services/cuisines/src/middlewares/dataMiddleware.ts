@@ -1,12 +1,12 @@
-import { NextFunction, Request, Response } from 'express';
+import type { NextFunction, Request, Response } from 'express';
 
-const dataMiddleware = (
-  data: any,
-  req: Request,
-  res: Response,
-  next: NextFunction,
-) => {
-  res.json({ data });
+import HttpCode from '@/common/HttpCode';
+
+const dataMiddleware = (req: Request, res: Response, next: NextFunction) => {
+  const data = res.locals?.data ?? null;
+  const status = res.locals?.status ?? HttpCode.OK;
+
+  res.status(status).json({ data });
 
   next();
 };
