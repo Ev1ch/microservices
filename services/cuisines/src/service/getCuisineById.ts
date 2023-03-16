@@ -1,8 +1,9 @@
 import type { GetCuisineById } from '@/abstracts/service';
-import { Cuisine } from '@/models';
+import { cuisinesRepository } from '@/repositories';
 
 const getCuisineById: GetCuisineById = async (id) => {
-  return new Cuisine();
+  const cuisine = await cuisinesRepository.getById(id);
+  return cuisine;
 };
 
 export default getCuisineById;
