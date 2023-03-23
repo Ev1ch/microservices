@@ -1,8 +1,8 @@
-import { Router } from 'express';
+import { Router } from "express";
 
-import controller from '@/controller';
-import { CUISINES_ROUTES } from '@/routes';
-import { errorMiddleware, dataMiddleware } from '@/middlewares';
+import controller from "@/controller";
+import { CUISINES_ROUTES } from "@/routes";
+import { errorMiddleware, dataMiddleware } from "@/middlewares";
 
 const router = Router();
 
@@ -12,12 +12,14 @@ export default function initRouter() {
       CUISINES_ROUTES.root,
       controller.getCuisines,
       errorMiddleware,
-      dataMiddleware,
+      dataMiddleware
     )
     .get(
       CUISINES_ROUTES.one,
       controller.getCuisineById,
       errorMiddleware,
-      dataMiddleware,
+      dataMiddleware
     );
 }
+
+//TODO: add POST PUT DELETE
