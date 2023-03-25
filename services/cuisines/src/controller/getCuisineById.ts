@@ -15,7 +15,6 @@ const getCuisineById: GetCuisineById = async (req, res, next) => {
     }
 
     const json = mapCuisineToJson(cuisine);
-
     setResponse(res, next, json);
   } catch (error) {
     setError(res, next, error);

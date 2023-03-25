@@ -19,6 +19,13 @@ export default function initRouter() {
       controller.getCuisineById,
       errorMiddleware,
       dataMiddleware
+    )
+    .post(
+      CUISINES_ROUTES.root,
+      controller.addCuisine,
+      // @ts-expect-error
+      errorMiddleware,
+      dataMiddleware
     );
 }
 
