@@ -12,6 +12,14 @@ const updateCuisine: UpdateCuisine = async (req, res, next) => {
     const { id } = req.params;
     const cuisineDTO = req.body;
     const cuisine = await service.updateCuisine(id, cuisineDTO);
+
+    if (!cuisine) {
+      throw new ApiError(
+        "There is no cuisines with such ID",
+        HttpCode.NOT_FOUND
+      );
+    }
+
     setResponse(res, next, cuisine);
   } catch (error) {
     console.log(error);

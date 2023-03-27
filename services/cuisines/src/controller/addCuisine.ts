@@ -19,7 +19,7 @@ const addCuisine: AddCuisine = async (req, res, next) => {
     console.log(cuisine);
 
     if (!cuisine) {
-      throw new ApiError("Cuisine is already existing", HttpCode.NOT_FOUND);
+      throw new ApiError("Some errors occured", HttpCode.NOT_FOUND);
     }
     setResponse(res, next, cuisine);
   } catch (error) {
