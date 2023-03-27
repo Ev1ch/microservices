@@ -23,7 +23,18 @@ export default function initRouter() {
     .post(
       CUISINES_ROUTES.root,
       controller.addCuisine,
-      // @ts-expect-error
+      errorMiddleware,
+      dataMiddleware
+    )
+    .delete(
+      CUISINES_ROUTES.one,
+      controller.deleteCuisine,
+      errorMiddleware,
+      dataMiddleware
+    )
+    .put(
+      CUISINES_ROUTES.one,
+      controller.updateCuisine,
       errorMiddleware,
       dataMiddleware
     );
