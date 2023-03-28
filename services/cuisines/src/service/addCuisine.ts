@@ -1,5 +1,4 @@
 import type { AddCuisine } from '@/abstracts/service';
-import type { ICuisineDTO } from '@/domain';
 import { cuisinesRepository } from '@/repositories';
 import { mapJsonToCuisine } from '@/mappers';
 

@@ -2,6 +2,7 @@ import type { UpdateCuisineById } from '@/abstracts/service';
 import type { ICuisineDTO } from '@/domain';
 import { cuisinesRepository } from '@/repositories';
 import { mapJsonToCuisine } from '@/mappers';
+import { NotFoundError } from '@/errors';
 
 const updateCuisine: UpdateCuisineById = async (
   id: string,
@@ -10,7 +11,7 @@ const updateCuisine: UpdateCuisineById = async (
   const cuisineExists = await cuisinesRepository.getById(id);
 
   if (!cuisineExists) {
-    throw new Error('Cuisine does not exist');
+    throw new NotFoundError('Cuisine does not exist');
   }
 
   const cuisineEntity = mapJsonToCuisine(cuisineDTO);
