@@ -9,7 +9,6 @@ const updateCuisine: UpdateCuisineById = async (req, res, next) => {
     const cuisine = await service.updateCuisineById(id, cuisineDTO);
     setResponse(res, next, cuisine);
   } catch (error) {
-    console.log(error);
     setError(res, next, error);
   }
 };

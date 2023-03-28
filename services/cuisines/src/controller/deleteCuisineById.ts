@@ -8,7 +8,6 @@ const deleteCuisine: DeleteCuisineById = async (req, res, next) => {
     await service.deleteCuisineById(id);
     setResponse(res, next);
   } catch (error) {
-    console.log(error);
     setError(res, next, error);
   }
 };
