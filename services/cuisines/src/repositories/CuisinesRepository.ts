@@ -1,7 +1,7 @@
-import type { ICuisinesRepository } from "@/abstracts/repositories";
-import { Cuisine } from "@/models";
-import { runner } from "@/database";
-import Repository from "./Repository";
+import type { ICuisinesRepository } from '@/abstracts/repositories';
+import { Cuisine } from '@/models';
+import { runner } from '@/database';
+import Repository from './Repository';
 
 export default class CuisinesRepository
   extends Repository<Cuisine, string>
@@ -11,5 +11,3 @@ export default class CuisinesRepository
 }
 
 export const cuisinesRepository = new CuisinesRepository();
-
-//TODO: do instance of class and export this instance
