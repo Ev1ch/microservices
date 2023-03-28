@@ -8,7 +8,7 @@ export const setError = (res: Response, next: NextFunction, error: unknown) => {
 export const setResponse = (
   res: Response,
   next: NextFunction,
-  data: unknown,
+  data?: unknown,
   status = HttpCode.OK,
 ) => {
   res.locals.data = data;
