@@ -2,42 +2,14 @@ import { Router } from 'express';
 
 import controller from '@/controller';
 import { CUISINES_ROUTES } from '@/routes';
-import { errorMiddleware, dataMiddleware } from '@/middlewares';
 
 const router = Router();
 
 export default function initRouter() {
   return router
-    .get(
-      CUISINES_ROUTES.root,
-      controller.getCuisines,
-      errorMiddleware,
-      dataMiddleware,
-    )
-    .get(
-      CUISINES_ROUTES.one,
-      controller.getCuisineById,
-      errorMiddleware,
-      dataMiddleware,
-    )
-    .post(
-      CUISINES_ROUTES.root,
-      controller.addCuisine,
-      errorMiddleware,
-      dataMiddleware,
-    )
-    .delete(
-      CUISINES_ROUTES.one,
-      controller.deleteCuisineById,
-      errorMiddleware,
-      dataMiddleware,
-    )
-    .put(
-      CUISINES_ROUTES.one,
-      controller.updateCuisineById,
-      errorMiddleware,
-      dataMiddleware,
-    );
+    .get(CUISINES_ROUTES.root, controller.getCuisines)
+    .get(CUISINES_ROUTES.one, controller.getCuisineById)
+    .post(CUISINES_ROUTES.root, controller.addCuisine)
+    .delete(CUISINES_ROUTES.one, controller.deleteCuisineById)
+    .put(CUISINES_ROUTES.one, controller.updateCuisineById);
 }
-
-//TODO: add POST PUT DELETE

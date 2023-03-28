@@ -1,16 +1,17 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 
 import environment from '@/environment';
 import database from '@/database';
 import { CUISINES_ROOT } from '@/routes';
 import initRouter from '@/router';
-import bodyParser from 'body-parser';
+import { dataMiddleware, errorMiddleware } from '@/middlewares';
 
 const app = express();
 
 app.use(bodyParser.json());
-app.use(express.json());
 app.use(CUISINES_ROOT, initRouter());
+app.use(errorMiddleware, dataMiddleware);
 
 database
   .initialize()
