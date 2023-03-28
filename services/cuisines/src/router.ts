@@ -1,8 +1,8 @@
-import { Router } from "express";
+import { Router } from 'express';
 
-import controller from "@/controller";
-import { CUISINES_ROUTES } from "@/routes";
-import { errorMiddleware, dataMiddleware } from "@/middlewares";
+import controller from '@/controller';
+import { CUISINES_ROUTES } from '@/routes';
+import { errorMiddleware, dataMiddleware } from '@/middlewares';
 
 const router = Router();
 
@@ -12,31 +12,31 @@ export default function initRouter() {
       CUISINES_ROUTES.root,
       controller.getCuisines,
       errorMiddleware,
-      dataMiddleware
+      dataMiddleware,
     )
     .get(
       CUISINES_ROUTES.one,
       controller.getCuisineById,
       errorMiddleware,
-      dataMiddleware
+      dataMiddleware,
     )
     .post(
       CUISINES_ROUTES.root,
       controller.addCuisine,
       errorMiddleware,
-      dataMiddleware
+      dataMiddleware,
     )
     .delete(
       CUISINES_ROUTES.one,
-      controller.deleteCuisine,
+      controller.deleteCuisineById,
       errorMiddleware,
-      dataMiddleware
+      dataMiddleware,
     )
     .put(
       CUISINES_ROUTES.one,
-      controller.updateCuisine,
+      controller.updateCuisineById,
       errorMiddleware,
-      dataMiddleware
+      dataMiddleware,
     );
 }
 
