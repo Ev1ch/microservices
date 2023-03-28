@@ -1,10 +1,10 @@
-import type { MapJsonToCuisine } from "@/abstracts/mappers";
-import { Cuisine } from "@/models";
+import type { MapJsonToCuisine } from '@/abstracts/mappers';
+import { Cuisine } from '@/models';
 
-const mapJsonToCuisine: MapJsonToCuisine = (ICuisine) => {
-  const cuisine = new Cuisine();
-  cuisine.name = ICuisine.name;
-  return cuisine;
+const mapJsonToCuisine: MapJsonToCuisine = (cuisine) => {
+  const mappedCuisine = new Cuisine();
+  mappedCuisine.name = cuisine.name;
+  return mappedCuisine;
 };
 
 export default mapJsonToCuisine;
