@@ -1,10 +1,10 @@
-import express from "express";
+import express from 'express';
 
-import environment from "@/environment";
-import database from "@/database";
-import { CUISINES_ROOT } from "@/routes";
-import initRouter from "@/router";
-import bodyParser from "body-parser";
+import environment from '@/environment';
+import database from '@/database';
+import { CUISINES_ROOT } from '@/routes';
+import initRouter from '@/router';
+import bodyParser from 'body-parser';
 
 const app = express();
 
