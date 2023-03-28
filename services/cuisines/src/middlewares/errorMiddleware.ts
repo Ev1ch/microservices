@@ -1,7 +1,7 @@
 import type { NextFunction, Request, Response } from 'express';
 
 import { ApiError } from '@/errors';
-import HttpCode from '@/common/HttpCode';
+import { DEFAULT_ERROR_STATUS } from '@/constants/statuses';
 
 const errorMiddleware = (
   data: any,
@@ -10,7 +10,7 @@ const errorMiddleware = (
   next: NextFunction,
 ) => {
   if (data instanceof Error) {
-    const status = (data as ApiError)?.status ?? HttpCode.INTERNAL_SERVER_ERROR;
+    const status = (data as ApiError)?.status ?? DEFAULT_ERROR_STATUS;
     const message = data?.message ?? 'Internal server error';
     res.status(status).json({ error: { message } });
     return;
