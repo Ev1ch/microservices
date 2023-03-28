@@ -1,21 +1,21 @@
-import getCuisines from "./getCuisines";
-import getCuisineById from "./getCuisineById";
-import addCuisine from "./addCuisine";
-import deleteCuisine from "./deleteCuisine";
-import updateCuisine from "./updateCuisine";
+import getCuisines from './getCuisines';
+import getCuisineById from './getCuisineById';
+import addCuisine from './addCuisine';
+import deleteCuisineById from './deleteCuisineById';
+import updateCuisineById from './updateCuisineById';
 
 export {
   getCuisines,
   getCuisineById,
   addCuisine,
-  deleteCuisine,
-  updateCuisine,
+  deleteCuisineById,
+  updateCuisineById,
 };
 
 export default {
   getCuisines,
   getCuisineById,
   addCuisine,
-  deleteCuisine,
-  updateCuisine,
+  deleteCuisineById,
+  updateCuisineById,
 };
