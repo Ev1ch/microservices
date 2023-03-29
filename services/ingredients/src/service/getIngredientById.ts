@@ -1,8 +1,15 @@
 import type { GetIngredientById } from "@/abstracts/service";
-import { Ingredient } from "@/models";
+import { NotFoundError } from "@/errors";
+import { ingredientsRepository } from "@/repositories";
 
-const getCountryById: GetIngredientById = async (id) => {
-  return new Ingredient();
+const getIngredientById: GetIngredientById = async (id) => {
+  const ingredient = await ingredientsRepository.getById(id);
+
+  if (!ingredient) {
+    throw new NotFoundError("Cuisine not found");
+  }
+
+  return ingredient;
 };
 
-export default getCountryById;
+export default getIngredientById;

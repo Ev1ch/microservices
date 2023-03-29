@@ -1,1 +1,4 @@
-export { default as IngredientsRepository } from './IngredientsRepository';
+export {
+  default as IngredientsRepository,
+  ingredientsRepository,
+} from "./IngredientsRepository";
