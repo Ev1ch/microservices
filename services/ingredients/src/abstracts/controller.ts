@@ -12,7 +12,7 @@ export type GetIngredients = ControllerMethod<{}, IIngredient[]>;
 
 export type GetIngredientById = ControllerMethod<{ id: string }, IIngredient>;
 
-export type AddIngredients = ControllerMethod<{}, IIngredient, IIngredientDTO>;
+export type AddIngredient = ControllerMethod<{}, IIngredient, IIngredientDTO>;
 
 export type DeleteIngredientsById = ControllerMethod<{ id: string }>;
 
