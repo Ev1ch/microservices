@@ -1,7 +1,7 @@
-import { Router } from 'express';
+import { Router } from "express";
 
-import controller from '@/controller';
-import { CUISINES_ROUTES } from '@/routes';
+import controller from "@/controller";
+import { CUISINES_ROUTES } from "@/routes";
 
 const router = Router();
 
