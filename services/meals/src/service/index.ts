@@ -1,15 +1,15 @@
-import getMeals from "./getMeal";
-import getMealById from "./getMealById";
-import addMeal from "./addMeal";
-import deleteMeal from "./deleteMealById";
-import updateMeal from "./updateMealById";
+import getMeals from './getMeal';
+import getMealById from './getMealById';
+import addMeal from './addMeal';
+import deleteMealById from './deleteMealById';
+import updateMealById from './updateMealById';
 
-export { getMeals, getMealById, addMeal, deleteMeal, updateMeal };
+export { getMeals, getMealById, addMeal, deleteMealById, updateMealById };
 
 export default {
   getMeals,
   getMealById,
   addMeal,
-  deleteMeal,
-  updateMeal,
+  deleteMealById,
+  updateMealById,
 };
