@@ -9,3 +9,5 @@ export default class CuisinesRepository
 {
   protected adapter = runner.manager.getRepository(Cuisine);
 }
+
+export const cuisinesRepository = new CuisinesRepository();

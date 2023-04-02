@@ -1,8 +1,8 @@
-import type { Repository as TypeOrmRepository } from 'typeorm';
+import type { Repository as TypeOrmRepository } from "typeorm";
 
-import type { IRepository } from '@/abstracts/repositories';
-import type { IEntity } from '@/domain';
-import type { PrimitiveKey } from '@/common/types';
+import type { IRepository } from "@/abstracts/repositories";
+import type { IEntity } from "@/domain";
+import type { PrimitiveKey } from "@/common/types";
 
 export default class Repository<T extends IEntity<K>, K extends PrimitiveKey>
   implements IRepository<T, K>
@@ -14,10 +14,14 @@ export default class Repository<T extends IEntity<K>, K extends PrimitiveKey>
   }
 
   public async getById(id: K) {
-    // TODO: Fix error expecting, research the core problem
-    // @ts-expect-error TS2345: Argument of type '{ where: { id: K; }; }' is not assignable to parameter of type 'FindOneOptions<T>'.
-    const entity = this.adapter.findOne({ where: { id } });
-    return entity;
+    try {
+      // TODO: Fix error expecting, research the core problem
+      // @ts-expect-error TS2345: Argument of type '{ where: { id: K; }; }' is not assignable to parameter of type 'FindOneOptions<T>'.
+      const entity = await this.adapter.findOne({ where: { id } });
+      return entity;
+    } catch (error) {
+      return null;
+    }
   }
 
   public async add(entity: T) {

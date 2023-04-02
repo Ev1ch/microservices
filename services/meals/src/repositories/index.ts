@@ -1,1 +1,3 @@
-export { default as MealsRepository } from './MealsRepository';
+export { MealsRepository } from "./MealsRepository";
+
+export { mealsRepository } from "./MealsRepository";

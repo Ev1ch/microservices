@@ -8,5 +8,8 @@ const router = Router();
 export default function initRouter() {
   return router
     .get(INGREDIENTS_ROUTES.root, controller.getIngredients)
-    .get(INGREDIENTS_ROUTES.one, controller.getIngredientById);
+    .get(INGREDIENTS_ROUTES.one, controller.getIngredientById)
+    .post(INGREDIENTS_ROUTES.root, controller.addIngredient)
+    .delete(INGREDIENTS_ROUTES.one, controller.deleteIngredientById)
+    .put(INGREDIENTS_ROUTES.one, controller.updateIngredientById);
 }
