@@ -1,13 +1,15 @@
-import type { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
+import type { PostgresConnectionOptions } from "typeorm/driver/postgres/PostgresConnectionOptions";
 
-import { Meal } from '@/models';
-import environment from '@/environment';
+import { Meal } from "@/models";
+import environment from "@/environment";
 
 const config: PostgresConnectionOptions = {
-  type: 'postgres',
-  url: environment.DB_URL,
+  type: "postgres",
+  database: "meals",
+  username: "postgres",
+  password: "postgres_password",
   entities: [Meal],
-  logging: ['error'],
+  logging: ["error"],
 };
 
 export default config;
