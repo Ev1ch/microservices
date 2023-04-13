@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-{{ .Chart.Name }}
+  name: {{ include "common.fullname" . }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      {{ .Values.selector | toYaml }}
+      {{- include "common.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        {{ .Values.selector | toYaml }}
+        {{- include "common.selectorLabels" . | nindent 8 }}}
     spec:
       initContainers:
         - name: {{ .Values.migrations.image.name }}
@@ -33,6 +33,6 @@ spec:
             {{- end }}
           envFrom:
             - configMapRef:
-                name: {{ .Release.Name }}-{{ .Chart.Name }}-config
+                name: {{ include "common.fullname" . }}-config
             - secretRef:
-                name: {{ .Release.Name }}-{{ .Chart.Name }}-secret
+                name: {{ include "common.fullname" . }}-secret
