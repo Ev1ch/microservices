@@ -20,7 +20,7 @@ ingress:
 
 migrations:
   image:
-    name: ingredients_migrations_image
+    name: ingredients-migrations-image
     tag: 0.1
   config:
     POSTGRESQL_URL: 'postgres://demo:demo@ingredients-db:5432/demo?sslmode=disable'

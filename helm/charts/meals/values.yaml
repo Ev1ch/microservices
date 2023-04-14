@@ -20,7 +20,7 @@ ingress:
 
 migrations:
   image:
-    name: meals_migrations_image
+    name: meals-migrations-image
     tag: 0.1
   config:
     POSTGRESQL_URL: 'postgres://demo:demo@meals-db:5432/demo?sslmode=disable'

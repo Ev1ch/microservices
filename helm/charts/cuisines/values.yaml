@@ -20,7 +20,7 @@ ingress:
 
 migrations:
   image:
-    name: cuisines_migrations_image
+    name: cuisines-migrations-image
     tag: 0.1
   config:
     POSTGRESQL_URL: 'postgres://demo:demo@cuisines-db:5432/demo?sslmode=disable'
