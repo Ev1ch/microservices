@@ -1,0 +1,24 @@
+replicaCount: 1
+
+selector:
+  app: ""
+
+image:
+  name: ""
+  tag: ""
+  port: http
+
+service:
+  ports: []
+
+ingress:
+  path: /
+  port: http
+
+migrations:
+  image: {}
+  config: {}
+
+configs: {}
+
+secrets: {}
