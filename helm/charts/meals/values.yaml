@@ -4,7 +4,7 @@ selector:
   app: meals
 
 image:
-  name: meals
+  name: meals-image
   tag: 0.1
   port: 8080
 

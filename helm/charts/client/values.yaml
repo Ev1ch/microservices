@@ -4,7 +4,7 @@ selector:
   app: client
 
 image:
-  name: client
+  name: client-image
   tag: 0.1
   port: 80
 
