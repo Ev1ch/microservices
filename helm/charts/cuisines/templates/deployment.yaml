@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        {{- include "common.selectorLabels" . | nindent 8 }}}
+        {{- include "common.selectorLabels" . | nindent 8 }}
     spec:
       initContainers:
         - name: {{ .Values.migrations.image.name }}
