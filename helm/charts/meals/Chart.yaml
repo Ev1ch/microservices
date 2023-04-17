@@ -4,3 +4,7 @@ version: 0.1.0
 name: meals
 appVersion: '0.1'
 description: 'demo'
+dependencies:
+  - name: postgresql
+    version: 12.2.7
+    repository: https://charts.bitnami.com/bitnami
