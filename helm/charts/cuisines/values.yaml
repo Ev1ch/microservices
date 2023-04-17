@@ -23,7 +23,7 @@ migrations:
     name: cuisines-migrations-image
     tag: 0.1
   config:
-    POSTGRESQL_URL: 'postgres://demo:demo@cuisines-db:5432/demo?sslmode=disable'
+    POSTGRESQL_URL: 'postgresql://demo:demo@cuisines-db:5432/demo?sslmode=disable'
     VERSION: '0.1'
 
 configs:
@@ -35,7 +35,7 @@ secrets:
   POSTGRES_PASSWORD: 'ZGVtbw=='
 
 postgresql:
-  fullnameOverride: postgres # використовується як хост
+  fullnameOverride: cuisines-db # використовується як хост
   postgresqlDatabase: 'demo'
   postgresqlUsername: 'demo'
   postgresqlPassword: 'demo'
