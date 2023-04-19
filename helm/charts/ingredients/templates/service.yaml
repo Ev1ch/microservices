@@ -1,1 +1,1 @@
-{{- template "common.secret" . -}}
+{{- template "common.service" . -}}
