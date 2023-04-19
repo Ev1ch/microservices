@@ -16,7 +16,7 @@ spec:
     {{- range .Values.service.ports }}
     - name: {{ .name }}
       port: {{ .port }}
-      targetPort: {{ .name }}
+      targetPort: {{ .containerPort }}
     {{- end }}
   selector:
     {{- include "common.selectorLabels" . | nindent 4 -}}

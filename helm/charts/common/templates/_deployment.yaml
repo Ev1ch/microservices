@@ -27,7 +27,7 @@ spec:
           image: {{ .Values.migrations.image.name }}:{{ .Values.migrations.image.tag }}
           command: ['yarn', 'migrate']
           env:
-            - name: POSTGRESQL_URL
+            - name: DB_URL
               value: {{ .Values.migrations.config.POSTGRESQL_URL | quote }}
             - name: VERSION
               value: {{ .Values.migrations.config.VERSION | quote }}
@@ -40,7 +40,6 @@ spec:
             {{- range .Values.service.ports }}
             - name: {{ .name }}
               containerPort: {{ .containerPort }}
-              protocol: TCP
             {{- end }}
           envFrom:
             - configMapRef:

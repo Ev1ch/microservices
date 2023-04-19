@@ -1,19 +1,19 @@
 replicaCount: 1
 
 selector:
-  app: ""
+  app: ''
 
 image:
-  name: ""
-  tag: ""
-  port: http
+  name: ''
+  tag: ''
+  port: 3000
 
 service:
   ports: []
 
 ingress:
   path: /
-  port: http
+  port: 80
 
 migrations:
   image: {}
