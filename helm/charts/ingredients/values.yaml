@@ -6,17 +6,17 @@ selector:
 image:
   name: ingredients-image
   tag: 0.1
-  port: 8080
+  port: 3000
 
 service:
   ports:
     - name: http
       port: 80
-      containerPort: 8080
+      containerPort: 3000
 
 ingress:
   path: /api/v1/ingredients
-  port: http
+  port: 80
 
 migrations:
   image:
@@ -31,14 +31,17 @@ configs:
   POSTGRES_HOST: postgres
 
 secrets:
-  POSTGRES_USER: 'ZGVtbw=='
-  POSTGRES_PASSWORD: 'ZGVtbw=='
+  username: 'ZGVtbw=='
+  password: 'ZGVtbw=='
 
 postgresql:
+  auth:
+    postgresPassword: 'demo'
+    username: 'demo'
+    password: 'demo'
+    database: 'demo'
   fullnameOverride: ingredients-db # використовується як хост
-  postgresqlDatabase: 'demo'
-  postgresqlUsername: 'demo'
-  postgresqlPassword: 'demo'
-  persistence:
-    size: 2Gi
-    mountPath: /var/lib/postgresql/data
+  primary:
+    persistence:
+      size: 2Gi
+      mountPath: /var/lib/postgresql/data
