@@ -41,6 +41,7 @@ postgresql:
     password: 'demo'
     database: 'demo'
   fullnameOverride: meals-db # використовується як хост
+  nameOverride: meals-db
   primary:
     persistence:
       size: 2Gi

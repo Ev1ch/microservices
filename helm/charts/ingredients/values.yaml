@@ -41,6 +41,7 @@ postgresql:
     password: 'demo'
     database: 'demo'
   fullnameOverride: ingredients-db # використовується як хост
+  nameOverride: ingredients-db
   primary:
     persistence:
       size: 2Gi
