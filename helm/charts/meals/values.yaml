@@ -1,0 +1,48 @@
+replicaCount: 1
+
+selector:
+  app: meals
+
+image:
+  name: meals-image
+  tag: 0.1
+  port: 3000
+
+service:
+  ports:
+    - name: http
+      port: 80
+      containerPort: 3000
+
+ingress:
+  path: /api/v1/meals
+  port: 80
+
+migrations:
+  image:
+    name: meals-migrations-image
+    tag: 0.1
+  config:
+    POSTGRESQL_URL: 'postgresql://demo:demo@meals-db:5432/demo?sslmode=disable'
+    VERSION: '0.1'
+
+configs:
+  POSTGRES_DB: demo
+  POSTGRES_HOST: postgres
+
+secrets:
+  username: 'ZGVtbw=='
+  password: 'ZGVtbw=='
+
+postgresql:
+  auth:
+    postgresPassword: 'demo'
+    username: 'demo'
+    password: 'demo'
+    database: 'demo'
+  fullnameOverride: meals-db # використовується як хост
+  nameOverride: meals-db
+  primary:
+    persistence:
+      size: 2Gi
+      mountPath: /var/lib/postgresql/data
