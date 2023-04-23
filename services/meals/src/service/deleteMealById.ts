@@ -1,0 +1,15 @@
+import type { DeleteMealById } from "@/abstracts/service";
+import NotFoundError from "@/errors/NotFoundError";
+import { mealsRepository } from "@/repositories";
+
+const deleteMeal: DeleteMealById = async (id: string) => {
+  const meal = await mealsRepository.getById(id);
+
+  if (!meal) {
+    throw new NotFoundError("Meal does not exist");
+  }
+
+  await mealsRepository.deleteById(id);
+};
+
+export default deleteMeal;

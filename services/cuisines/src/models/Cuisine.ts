@@ -1,6 +1,12 @@
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+
 import type { ICuisine } from '@/domain';
 
+@Entity('cuisines')
 export default class Cuisine implements ICuisine {
-  public id: string = 'id';
-  public name: string = 'name';
+  @PrimaryGeneratedColumn('uuid')
+  public id!: string;
+
+  @Column()
+  public name!: string;
 }

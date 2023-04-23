@@ -1,9 +1,21 @@
-import getIngredients from "./getIngredients";
-import getIngredient from "./getIngredient";
+import getIngredients from './getIngredients';
+import getIngredientById from './getIngredientById';
+import addIngredient from './addIngredient';
+import deleteIngredientById from './deleteIngredientById';
+import updateIngredientById from './updateIngredientById';
 
-export { getIngredients, getIngredient };
+export {
+  getIngredients,
+  getIngredientById,
+  addIngredient,
+  deleteIngredientById,
+  updateIngredientById,
+};
 
 export default {
   getIngredients,
-  getIngredient,
+  getIngredientById,
+  addIngredient,
+  deleteIngredientById,
+  updateIngredientById,
 };

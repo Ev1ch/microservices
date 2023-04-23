@@ -1,8 +1,11 @@
 import type { GetMeals } from '@/abstracts/service';
-import { Meal } from '@/models';
+import { MealsRepository } from '@/repositories';
+
+const repository = new MealsRepository();
 
 const getMeals: GetMeals = async () => {
-  return [new Meal()];
+  const meals = await repository.getAll();
+  return meals;
 };
 
 export default getMeals;
