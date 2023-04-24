@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "baseUrl": "./src",
+    "outDir": "./dist",
+    "alwaysStrict": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "allowJs": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "isolatedModules": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"],
+  "ts-node": {
+    "require": ["tsconfig-paths/register"]
+  }
+}
