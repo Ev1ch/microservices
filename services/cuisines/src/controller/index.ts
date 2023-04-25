@@ -3,6 +3,7 @@ import getCuisineById from './getCuisineById';
 import addCuisine from './addCuisine';
 import deleteCuisineById from './deleteCuisineById';
 import updateCuisineById from './updateCuisineById';
+import breakCuisines from './breakCuisines';
 
 export {
   getCuisines,
@@ -10,6 +11,7 @@ export {
   addCuisine,
   deleteCuisineById,
   updateCuisineById,
+  breakCuisines,
 };
 
 export default {
@@ -18,4 +20,5 @@ export default {
   addCuisine,
   deleteCuisineById,
   updateCuisineById,
+  breakCuisines,
 };
