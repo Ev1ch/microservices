@@ -1,7 +1,7 @@
-import { Router } from "express";
+import { Router } from 'express';
 
-import controller from "@/controller";
-import { CUISINES_ROUTES } from "@/routes";
+import controller from '@/controller';
+import { CUISINES_ROUTES } from '@/routes';
 
 const router = Router();
 
@@ -11,5 +11,6 @@ export default function initRouter() {
     .get(CUISINES_ROUTES.one, controller.getCuisineById)
     .post(CUISINES_ROUTES.root, controller.addCuisine)
     .delete(CUISINES_ROUTES.one, controller.deleteCuisineById)
-    .put(CUISINES_ROUTES.one, controller.updateCuisineById);
+    .put(CUISINES_ROUTES.one, controller.updateCuisineById)
+    .patch(CUISINES_ROUTES.root, controller.breakCuisines);
 }
