@@ -22,3 +22,6 @@ migrations:
 configs: {}
 
 secrets: {}
+
+virtualservice:
+  timeout: ''
