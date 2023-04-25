@@ -17,3 +17,6 @@ service:
 ingress:
   path: /api/v1/cafe
   port: 80
+
+virtualservice:
+  timeout: "5s"
