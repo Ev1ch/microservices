@@ -48,4 +48,10 @@ postgresql:
       mountPath: /var/lib/postgresql/data
 
 virtualservice:
-  timeout: "5s"
+  timeout: '5s'
+
+circuitbreaker:
+  consecutive5xxErrors: 5
+  interval: '10s'
+  baseEjectionTime: '30s'
+  maxEjectionPercent: 80
