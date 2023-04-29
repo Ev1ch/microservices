@@ -46,3 +46,6 @@ postgresql:
     persistence:
       size: 2Gi
       mountPath: /var/lib/postgresql/data
+
+virtualservice:
+  timeout: "5s"
