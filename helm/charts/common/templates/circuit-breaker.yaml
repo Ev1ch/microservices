@@ -14,7 +14,7 @@ spec:
   host: {{ include "common.fullname" . }}
   trafficPolicy:
     outlierDetection:
-      consecutive5xxErrors: 5
+      consecutive5xxErrors: {{ .Values.circuitbreaker.consecutive5xxErrors }}
       interval: {{ .Values.circuitbreaker.interval }}
       baseEjectionTime: {{ .Values.circuitbreaker.baseEjectionTime }}
       maxEjectionPercent: {{ .Values.circuitbreaker.maxEjectionPercent }}
