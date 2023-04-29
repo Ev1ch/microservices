@@ -27,7 +27,7 @@ virtualservice:
   timeout: ''
 
 circuitbreaker:
-  consecutive5xxErrors: ''
+  consecutive5xxErrors:
   interval: ''
   baseEjectionTime: ''
-  maxEjectionPercent: ''
+  maxEjectionPercent:
