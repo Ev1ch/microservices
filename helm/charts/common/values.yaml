@@ -25,3 +25,9 @@ secrets: {}
 
 virtualservice:
   timeout: ''
+
+circuitbreaker:
+  consecutive5xxErrors: ''
+  interval: ''
+  baseEjectionTime: ''
+  maxEjectionPercent: ''
