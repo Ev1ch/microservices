@@ -51,7 +51,7 @@ virtualservice:
   timeout: '5s'
 
 circuitbreaker:
-  consecutive5xxErrors: 5
+  consecutive5xxErrors: 2
   interval: '10s'
   baseEjectionTime: '30s'
   maxEjectionPercent: 80
