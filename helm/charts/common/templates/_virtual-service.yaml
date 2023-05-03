@@ -17,7 +17,6 @@ spec:
     - route:
       - destination:
           host: {{ include "common.fullname" . }}
-      timeout: {{ .Values.virtualservice.timeout }}
       retries:
         attempts: 3
         retryOn: 5xx
