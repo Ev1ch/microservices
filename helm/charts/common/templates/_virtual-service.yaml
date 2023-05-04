@@ -1,0 +1,25 @@
+{{- define "common.virtual-service" -}}
+
+{{- $common := dict "Values" .Values.common -}} # Values з common Chart
+{{- $noCommon := omit .Values "common" -}} # Values з основного Chart
+{{- $overrides := dict "Values" $noCommon -}} # записуємо common Values в змінну Values
+{{- $noValues := omit . "Values" -}} # містить усе крім Values, зокрема Chart, Release
+{{- with merge $noValues $overrides $common -}}
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: {{ include "common.fullname" . }}-virtual
+spec:
+  hosts:
+    - {{ include "common.fullname" . }}
+  http:
+    - route:
+      - destination:
+          host: {{ include "common.fullname" . }}
+      retries:
+        attempts: 3
+        retryOn: 5xx
+        perTryTimeout: {{ .Values.virtualservice.timeout }}
+{{- end -}}
+{{- end -}}

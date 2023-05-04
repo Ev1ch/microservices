@@ -5,12 +5,17 @@ import environment from '@/environment';
 import database from '@/database';
 import { CUISINES_ROOT } from '@/routes';
 import initRouter from '@/router';
-import { dataMiddleware, errorMiddleware } from '@/middlewares';
+import {
+  dataMiddleware,
+  errorMiddleware,
+  stateMiddleware,
+} from '@/middlewares';
+import { cuisinesState } from '@/state';
 
 const app = express();
 
 app.use(bodyParser.json());
-app.use(CUISINES_ROOT, initRouter());
+app.use(CUISINES_ROOT, stateMiddleware(cuisinesState), initRouter());
 app.use(errorMiddleware, dataMiddleware);
 
 database

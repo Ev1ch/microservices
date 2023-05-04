@@ -1,0 +1,28 @@
+replicaCount: 1
+
+selector:
+  app: cafe
+
+image:
+  name: cafe-image
+  tag: 0.1
+  port: 3000
+
+service:
+  ports:
+    - name: http
+      port: 80
+      containerPort: 3000
+
+ingress:
+  path: /api/v1/cafe
+  port: 80
+
+virtualservice:
+  timeout: '5s'
+
+circuitbreaker:
+  consecutive5xxErrors: 5
+  interval: '10s'
+  baseEjectionTime: '30s'
+  maxEjectionPercent: 80

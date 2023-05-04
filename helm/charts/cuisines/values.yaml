@@ -1,4 +1,4 @@
-replicaCount: 1
+replicaCount: 3
 
 selector:
   app: cuisines
@@ -46,3 +46,12 @@ postgresql:
     persistence:
       size: 2Gi
       mountPath: /var/lib/postgresql/data
+
+virtualservice:
+  timeout: '5s'
+
+circuitbreaker:
+  consecutive5xxErrors: 2
+  interval: '10s'
+  baseEjectionTime: '30s'
+  maxEjectionPercent: 80
