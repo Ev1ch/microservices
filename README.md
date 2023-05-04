@@ -1,32 +1,18 @@
 # Microservices
-<h3>Lab 4 details:</h3>
-Service that imitates unhealthy Pod behavior - is cuisine sevice. </br>
-After PATCH request to <i>'api/v1/cuisines' </i> route, part of next requests will be broken - they will have 5 seonds delay. </br>
-That request must be done manualy - it has not been connected to client. </br>
-There is a .go script to have such a test done. </br>
-So, compiling and runnig <a href='https://github.com/Ev1ch/microservices/blob/lab-4-circuit-breaker/test.go'>test.go</a> gives us a simulation, that will show results. </br>
-</br>
-Our results after own app testing</br></br>
-<table>
-  <tr>
-    <th>&nbsp;</th>
-    <th>Before break</th>
-    <th>Immediately after</th>
-    <th>Short time after</th>
-    <th>Long time after</th>
-  </tr>
-  <tr>
-    <td>Average time</td>
-    <td>1.422s</td>
-    <td>3.95s</td>
-    <td>2.77s</td>
-    <td>1.77s</td>
-  </tr>
-  <tr>
-    <td>Fails number</td>
-    <td>0/100</td>
-    <td>0/100</td>
-    <td>0/100</td>
-    <td>0/100</td>
-  </tr>
-</table>
+
+## Description:
+
+Service that imitates unhealthy Pod behavior - is `cuisines` sevice.  
+
+After PATCH request to `api/v1/cuisines` route, part of next requests will be broken - they will have 5 seonds delay.  
+
+That request must be done manualy - it has not been connected to client.  
+
+There is a `.go` script to have such a test done. So, compiling and running [`test.go`](https://github.com/Ev1ch/microservices/blob/lab-4/test.go) gives us a simulation, that will show results.  
+  
+## Results of testing
+
+|     | Before break | Immediately after | Short time after | Long time after |
+| --- | --- | --- | --- | --- |
+| Average time | 1.422s | 3.95s | 2.77s | 1.77s |
+| Fails number | 0/100 | 0/100 | 0/100 | 0/100 |
