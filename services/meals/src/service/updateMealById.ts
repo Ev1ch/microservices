@@ -3,6 +3,7 @@ import type { IMealDTO } from "@/domain";
 import { mealsRepository } from "@/repositories";
 import { mapJsonToMeal } from "@/mappers";
 import { NotFoundError } from "@/errors";
+import sendMessage from "./kafka"
 
 const updateMeal: UpdateMealById = async (id: string, mealDTO: IMealDTO) => {
   const cuisineExists = await mealsRepository.getById(id);
@@ -13,6 +14,9 @@ const updateMeal: UpdateMealById = async (id: string, mealDTO: IMealDTO) => {
 
   const mealEntity = mapJsonToMeal(mealDTO);
   const meal = await mealsRepository.updateById(id, mealEntity);
+
+  sendMessage('UPDATED', meal);
+  
   return meal;
 };
 

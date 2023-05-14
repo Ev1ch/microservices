@@ -1,7 +1,7 @@
 import type { GetMealById } from "@/abstracts/service";
-import { Meal } from "@/models";
 import { NotFoundError } from "@/errors";
 import { mealsRepository } from "@/repositories";
+import sendMessage from "./kafka"
 
 const getMealById: GetMealById = async (id) => {
   const meal = await mealsRepository.getById(id);
@@ -9,6 +9,8 @@ const getMealById: GetMealById = async (id) => {
   if (!meal) {
     throw new NotFoundError("Meal not found");
   }
+
+  sendMessage('GETTED', meal);
 
   return meal;
 };
