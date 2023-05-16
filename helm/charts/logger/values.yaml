@@ -1,7 +1,7 @@
 replicaCount: 1
 
 selector:
-  app: cafe
+  app: logger
 
 image:
   name: logger-image
@@ -13,8 +13,3 @@ service:
     - name: http
       port: 80
       containerPort: 3000
-
-ingress:
-  path: /api/v1/cafe
-  port: 80
-
