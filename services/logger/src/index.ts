@@ -1,6 +1,6 @@
 import { Kafka } from 'kafkajs';
 
-import type { IMeal } from '@/domain';
+import type { IMealMessage } from '@/domain';
 
 const kafka = new Kafka({
   clientId: 'logger-service',
@@ -13,27 +13,29 @@ const kafka = new Kafka({
 
 const consumer = kafka.consumer({ groupId: 'logger' });
 
-const main = async () => {
-  await consumer.connect().then(() => console.log('Logger is connected!'));
-
-  await consumer.subscribe({ topic: 'meals' });
-
-  await consumer.run({
-    eachMessage: async ({ topic, message }) => {
-      const data = JSON.parse(message.value!.toString());
-      if (topic == 'meals') {
-        processMealMessage(data);
-      }
-    },
-  });
-};
-
-function processMealMessage(data: IMeal) {
+function handleMealMessage(message: IMealMessage) {
   console.log(
-    `[${new Date().toISOString()}] MEAL: -> MEAL: ${JSON.stringify(
-      data.data
-    )} SUCCESSFULLY ${data.event} AT ${data.date}`
+    `[${new Date().toISOString()}] Meals --> ${message.event}: ${JSON.stringify(
+      message.data
+    )} | ${message.date}`
   );
 }
 
-main();
+async function init() {
+  await consumer.connect();
+  await consumer.subscribe({ topic: 'meals' });
+
+  await consumer.run({
+    async eachMessage({ topic, message }) {
+      const data = JSON.parse(message.value!.toString());
+
+      if (topic == 'meals') {
+        handleMealMessage(data);
+      }
+    },
+  });
+}
+
+init()
+  .then(() => console.log('Logger service started'))
+  .catch(console.error);

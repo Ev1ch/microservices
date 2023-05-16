@@ -1,2 +1,2 @@
-export type { default as IEntity } from './IEntity';
-export type { default as IMeal } from './IMeal';
+export type { default as IEntityMessage, EntityEvent } from './IEntityMessage';
+export type { default as IMealMessage } from './IMealMessage';
