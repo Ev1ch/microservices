@@ -8,4 +8,5 @@ export enum EntityEvent {
 export default interface IEntityMessage {
   event: EntityEvent;
   date: Date;
+  data: unknown;
 }

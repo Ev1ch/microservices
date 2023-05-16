@@ -1,6 +1,6 @@
 import { Kafka } from 'kafkajs';
 
-import type { IMealMessage } from '@/domain';
+import { TOPICS_TO_SUBSCRIBE, TOPIC_TO_LOGGER_MAP } from '@/constants/loggers';
 
 const kafka = new Kafka({
   clientId: 'logger-service',
@@ -13,24 +13,21 @@ const kafka = new Kafka({
 
 const consumer = kafka.consumer({ groupId: 'logger' });
 
-function handleMealMessage(message: IMealMessage) {
-  console.log(
-    `[${new Date().toISOString()}] Meals --> ${message.event}: ${JSON.stringify(
-      message.data
-    )} | ${message.date}`
-  );
-}
-
 async function init() {
   await consumer.connect();
-  await consumer.subscribe({ topic: 'meals' });
+
+  TOPICS_TO_SUBSCRIBE.forEach(async (topic) => {
+    await consumer.subscribe({ topic });
+  });
 
   await consumer.run({
     async eachMessage({ topic, message }) {
-      const data = JSON.parse(message.value!.toString());
+      const data = message.value ? JSON.parse(message.value.toString()) : null;
 
-      if (topic == 'meals') {
-        handleMealMessage(data);
+      if (Object.keys(TOPIC_TO_LOGGER_MAP).includes(topic)) {
+        TOPIC_TO_LOGGER_MAP[topic as keyof typeof TOPIC_TO_LOGGER_MAP](data);
+      } else {
+        TOPIC_TO_LOGGER_MAP.default(data);
       }
     },
   });
