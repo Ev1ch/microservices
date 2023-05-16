@@ -16,9 +16,9 @@ const consumer = kafka.consumer({ groupId: 'logger' });
 async function init() {
   await consumer.connect();
 
-  TOPICS_TO_SUBSCRIBE.forEach(async (topic) => {
-    await consumer.subscribe({ topic });
-  });
+  await Promise.all(
+    TOPICS_TO_SUBSCRIBE.map((topic) => consumer.subscribe({ topic }))
+  );
 
   await consumer.run({
     async eachMessage({ topic, message }) {
