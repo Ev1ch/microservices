@@ -7,9 +7,7 @@ const repository = new MealsRepository();
 const getMeals: GetMeals = async () => {
   const meals = await repository.getAll();
 
-  meals.forEach((meal) => {
-    sendMessage('GOT', meal);
-  });
+  sendMessage('GOT', {id: "-1", name:"all meals"});
 
   return meals;
 };
