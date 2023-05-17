@@ -21,5 +21,6 @@ docker build -t cuisines-image:0.1 services/cuisines/
 docker build -t meals-image:0.1 services/meals/
 docker build -t ingredients-image:0.1 services/ingredients/
 docker build -t cafe-image:0.1 services/cafe/
+docker build -t logger-image:0.1 services/logger/
 
 minikube tunnel

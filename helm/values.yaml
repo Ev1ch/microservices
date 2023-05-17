@@ -6,3 +6,4 @@ kafka:
     enabled: true
     topics:
       - name: demo
+      - name: meals

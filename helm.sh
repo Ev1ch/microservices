@@ -9,4 +9,5 @@ helm dependency build helm
 helm dependency build helm/charts/cuisines
 helm dependency build helm/charts/ingredients
 helm dependency build helm/charts/meals
+helm dependency build helm/charts/logger
 helm install local helm
