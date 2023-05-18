@@ -7,7 +7,7 @@ const getIngredientById: GetIngredientById = async (id) => {
   const ingredient = await ingredientsRepository.getById(id);
 
   if (!ingredient) {
-    throw new NotFoundError('Cuisine not found');
+    throw new NotFoundError('Ingredient not found');
   }
 
   sendMessage('GOT', ingredient);

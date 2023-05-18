@@ -7,7 +7,7 @@ const deleteIngredient: DeleteIngredientById = async (id: string) => {
   const ingredient = await ingredientsRepository.getById(id);
 
   if (!ingredient) {
-    throw new NotFoundError('Cuisine does not exist');
+    throw new NotFoundError('Ingredient does not exist');
   }
 
   await ingredientsRepository.deleteById(id);

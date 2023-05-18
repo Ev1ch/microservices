@@ -12,7 +12,7 @@ const updateIngredientById: UpdateIngredientById = async (
   const ingredientExists = await ingredientsRepository.getById(id);
 
   if (!ingredientExists) {
-    throw new NotFoundError('Cuisine does not exist');
+    throw new NotFoundError('Ingredient does not exist');
   }
 
   const ingredientEntity = mapJsonToIngredient(ingredientDTO);
