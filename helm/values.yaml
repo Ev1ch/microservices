@@ -7,3 +7,5 @@ kafka:
     topics:
       - name: demo
       - name: meals
+      - name: ingredients
+      - name: cuisines
