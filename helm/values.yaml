@@ -5,5 +5,6 @@ kafka:
   provisioning:
     enabled: true
     topics:
-      - name: demo
       - name: meals
+      - name: ingredients
+      - name: cuisines

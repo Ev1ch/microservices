@@ -1,15 +1,18 @@
-import type { DeleteIngredientById } from "@/abstracts/service";
-import NotFoundError from "@/errors/NotFoundError";
-import { ingredientsRepository } from "@/repositories";
+import type { DeleteIngredientById } from '@/abstracts/service';
+import NotFoundError from '@/errors/NotFoundError';
+import { ingredientsRepository } from '@/repositories';
+import sendMessage from './kafka';
 
 const deleteIngredient: DeleteIngredientById = async (id: string) => {
-  const cuisine = await ingredientsRepository.getById(id);
+  const ingredient = await ingredientsRepository.getById(id);
 
-  if (!cuisine) {
-    throw new NotFoundError("Cuisine does not exist");
+  if (!ingredient) {
+    throw new NotFoundError('Ingredient does not exist');
   }
 
   await ingredientsRepository.deleteById(id);
+
+  sendMessage('DELETED', ingredient);
 };
 
 export default deleteIngredient;

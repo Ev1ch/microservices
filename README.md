@@ -2,17 +2,8 @@
 
 ## Description:
 
-Service that imitates unhealthy Pod behavior - is `cuisines` sevice.  
+We have 3 topics: meals, ingredients and cuisines
 
-After PATCH request to `api/v1/cuisines` route, part of next requests will be broken - they will have 5 seonds delay.  
+Each time when meals, ingredients or cuisines services get request to CREATE, UPDATE, GET, DELETE any entity, message about this is placed in according topic. These services are producers
 
-That request must be done manualy - it has not been connected to client.  
-
-There is a `.go` script to have such a test done. So, compiling and running [`test.go`](https://github.com/Ev1ch/microservices/blob/lab-4/test.go) gives us a simulation, that will show results.  
-  
-## Results of testing
-
-|     | Before break | Immediately after | Short time after | Long time after |
-| --- | --- | --- | --- | --- |
-| Average time | 1.422s | 3.95s | 2.77s | 1.77s |
-| Fails number | 0/100 | 0/100 | 0/100 | 0/100 |
+The logger service is subscribed to all 3 topics and it's writing all received messages in console. 
