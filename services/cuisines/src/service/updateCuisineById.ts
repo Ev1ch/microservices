@@ -3,10 +3,11 @@ import type { ICuisineDTO } from '@/domain';
 import { cuisinesRepository } from '@/repositories';
 import { mapJsonToCuisine } from '@/mappers';
 import { NotFoundError } from '@/errors';
+import sendMessage from './kafka';
 
 const updateCuisine: UpdateCuisineById = async (
   id: string,
-  cuisineDTO: ICuisineDTO,
+  cuisineDTO: ICuisineDTO
 ) => {
   const cuisineExists = await cuisinesRepository.getById(id);
 
@@ -16,6 +17,9 @@ const updateCuisine: UpdateCuisineById = async (
 
   const cuisineEntity = mapJsonToCuisine(cuisineDTO);
   const cuisine = await cuisinesRepository.updateById(id, cuisineEntity);
+
+  sendMessage('UPDATED', cuisine);
+
   return cuisine;
 };
 

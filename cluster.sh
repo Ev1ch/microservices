@@ -12,14 +12,24 @@ minikube kubectl -- delete ingress --all
 minikube kubectl -- delete secret --all
 minikube kubectl -- delete persistentvolumeclaim --all
 
-docker build -t cuisines-migrations-image:0.1 services/cuisines/migrations/
-docker build -t meals-migrations-image:0.1 services/meals/migrations/
-docker build -t ingredients-migrations-image:0.1 services/ingredients/migrations/
+docker image pull ev1ch/cuisines-migrations-image:0.1
+docker image pull ev1ch/meals-migrations-image:0.1
+docker image pull ev1ch/ingredients-migrations-image:0.1
+docker image tag ev1ch/cuisines-migrations-image:0.1 cuisines-migrations-image:0.1
+docker image tag ev1ch/meals-migrations-image:0.1 meals-migrations-image:0.1
+docker image tag ev1ch/ingredients-migrations-image:0.1 ingredients-migrations-image:0.1
 
-docker build -t client-image:0.1 client/
-docker build -t cuisines-image:0.1 services/cuisines/
-docker build -t meals-image:0.1 services/meals/
-docker build -t ingredients-image:0.1 services/ingredients/
-docker build -t cafe-image:0.1 services/cafe/
+docker image pull ev1ch/client-image:0.1
+docker image pull ev1ch/cuisines-image:0.1
+docker image pull ev1ch/meals-image:0.1
+docker image pull ev1ch/ingredients-image:0.1
+docker image pull ev1ch/cafe-image:0.1
+docker image pull ev1ch/logger-image:0.1
+docker image tag ev1ch/client-image:0.1 client-image:0.1
+docker image tag ev1ch/cuisines-image:0.1 cuisines-image:0.1
+docker image tag ev1ch/meals-image:0.1 meals-image:0.1
+docker image tag ev1ch/ingredients-image:0.1 ingredients-image:0.1
+docker image tag ev1ch/cafe-image:0.1 cafe-image:0.1
+docker image tag ev1ch/logger-image:0.1 logger-image:0.1
 
 minikube tunnel

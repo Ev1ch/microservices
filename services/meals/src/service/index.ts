@@ -1,4 +1,4 @@
-import getMeals from './getMeal';
+import getMeals from './getMeals';
 import getMealById from './getMealById';
 import addMeal from './addMeal';
 import deleteMealById from './deleteMealById';

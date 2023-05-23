@@ -5,7 +5,9 @@ kubectl create namespace istio-system
 helm install istio-base istio/base -n istio-system
 helm install istiod istio/istiod -n istio-system --wait
 kubectl label namespace default istio-injection=enabled
+helm dependency build helm
 helm dependency build helm/charts/cuisines
 helm dependency build helm/charts/ingredients
 helm dependency build helm/charts/meals
+helm dependency build helm/charts/logger
 helm install local helm

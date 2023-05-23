@@ -1,0 +1,10 @@
+kafka:
+  fullnameOverride: kafka
+  numPartitions: 3
+  autoCreateTopicsEnable: false
+  provisioning:
+    enabled: true
+    topics:
+      - name: meals
+      - name: ingredients
+      - name: cuisines
